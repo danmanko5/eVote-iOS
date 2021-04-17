@@ -6,6 +6,10 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseCore
+import FirebaseFirestore
+import Firebase
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -13,10 +17,48 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        if let windowScene = scene as? UIWindowScene {
+            let window = UIWindow(windowScene: windowScene)
+            
+            FirebaseApp.configure()
+            Auth.auth().settings?.isAppVerificationDisabledForTesting = true
+            
+            let keyValueStorage = UserDefaults.standard
+            let urlHandler = UIApplication.shared
+            
+            let auth = Auth.auth()
+            let firestore = Firestore.firestore()
+            let phoneAuthProvider = Firebase.PhoneAuthProvider.provider()
+            
+            let firebaseAuthenticator = FirebaseAuthenticator(auth: auth,
+                                                              phoneAuthProvider: phoneAuthProvider,
+                                                              firestore: firestore)
+            
+            let userCreatorProvider = UserCreatorProvider(firestore: firestore)
+            
+            let uiFactoriesProvider = UIFactoriesProvider(keyValueStorage: keyValueStorage,
+                                                          urlHandler: urlHandler,
+                                                          userCreatorProvider: userCreatorProvider,
+                                                          firestore: firestore,
+                                                          authenticator: firebaseAuthenticator,
+                                                          logoutProvider: firebaseAuthenticator,
+                                                          userDeletionProvider: firebaseAuthenticator)
+            let flowCoordinatorsProvider = FlowCoordinatorsProvider(uiFactoriesProvider: uiFactoriesProvider,
+                                                                    authenticationStateProvider: firebaseAuthenticator)
+            
+            let appFlowCoordinator = flowCoordinatorsProvider.appFlowCoordinator
+            appFlowCoordinator.install()
+
+            window.rootViewController = appFlowCoordinator.rootViewController
+            self.window = window
+            window.makeKeyAndVisible()
+            
+            if let userActivity = connectionOptions.userActivities.first {
+                self.scene(scene, continue: userActivity)
+            } else {
+                self.scene(scene, openURLContexts: connectionOptions.urlContexts)
+            }
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -47,6 +89,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
+    func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
+    }
 
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+    }
 }
 
