@@ -44,6 +44,7 @@ final class HomeViewController: UIViewController {
         self.tableView.backgroundColor = .white
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        self.tableView.tableFooterView = UIView()
         
         self.tableView.register(VoteTableViewCell.self, forCellReuseIdentifier: VoteTableViewCell.className)
         

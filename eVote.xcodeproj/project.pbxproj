@@ -114,6 +114,9 @@
 		A4B2A494262B60CC00C1E073 /* VoteOptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2A493262B60CC00C1E073 /* VoteOptionTableViewCell.swift */; };
 		A4B2A49F262B649100C1E073 /* VoteTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2A49E262B649100C1E073 /* VoteTableHeaderView.swift */; };
 		A4B2A4A4262B660000C1E073 /* VoteTableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2A4A3262B660000C1E073 /* VoteTableFooterView.swift */; };
+		A4B2A4AA262B6D3100C1E073 /* VoteResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2A4A9262B6D3100C1E073 /* VoteResultViewModel.swift */; };
+		A4B2A4B2262B6F6C00C1E073 /* VoteResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2A4B1262B6F6C00C1E073 /* VoteResultViewController.swift */; };
+		A4B2A4B8262B6FDE00C1E073 /* VoteResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2A4B7262B6FDE00C1E073 /* VoteResultTableViewCell.swift */; };
 		BE25451C28D30408D2E5325C /* Pods_eVote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71424BF87F7F81903B984933 /* Pods_eVote.framework */; };
 /* End PBXBuildFile section */
 
@@ -252,6 +255,9 @@
 		A4B2A493262B60CC00C1E073 /* VoteOptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteOptionTableViewCell.swift; sourceTree = "<group>"; };
 		A4B2A49E262B649100C1E073 /* VoteTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteTableHeaderView.swift; sourceTree = "<group>"; };
 		A4B2A4A3262B660000C1E073 /* VoteTableFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteTableFooterView.swift; sourceTree = "<group>"; };
+		A4B2A4A9262B6D3100C1E073 /* VoteResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteResultViewModel.swift; sourceTree = "<group>"; };
+		A4B2A4B1262B6F6C00C1E073 /* VoteResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteResultViewController.swift; sourceTree = "<group>"; };
+		A4B2A4B7262B6FDE00C1E073 /* VoteResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteResultTableViewCell.swift; sourceTree = "<group>"; };
 		B18ABE005E094BF71E6A80C0 /* Pods-eVote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eVote.debug.xcconfig"; path = "Target Support Files/Pods-eVote/Pods-eVote.debug.xcconfig"; sourceTree = "<group>"; };
 		F48C67530BD528CD2D2EE88D /* Pods-eVoteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eVoteTests.release.xcconfig"; path = "Target Support Files/Pods-eVoteTests/Pods-eVoteTests.release.xcconfig"; sourceTree = "<group>"; };
 		FC01072F2D0540796EAD2970 /* Pods_eVoteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eVoteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -539,6 +545,7 @@
 				A4B2A3E7262B175900C1E073 /* Home */,
 				A4B2A3E8262B175F00C1E073 /* MyVotes */,
 				A4B2A47F262B5B6500C1E073 /* Vote */,
+				A4B2A4A8262B6D1C00C1E073 /* VoteResult */,
 				A4B2A3E9262B176700C1E073 /* Settings */,
 				A4B2A45C262B366F00C1E073 /* CreateVote */,
 			);
@@ -799,6 +806,24 @@
 				A4B2A493262B60CC00C1E073 /* VoteOptionTableViewCell.swift */,
 				A4B2A49E262B649100C1E073 /* VoteTableHeaderView.swift */,
 				A4B2A4A3262B660000C1E073 /* VoteTableFooterView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A4B2A4A8262B6D1C00C1E073 /* VoteResult */ = {
+			isa = PBXGroup;
+			children = (
+				A4B2A4B1262B6F6C00C1E073 /* VoteResultViewController.swift */,
+				A4B2A4A9262B6D3100C1E073 /* VoteResultViewModel.swift */,
+				A4B2A4B6262B6FCD00C1E073 /* Views */,
+			);
+			path = VoteResult;
+			sourceTree = "<group>";
+		};
+		A4B2A4B6262B6FCD00C1E073 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A4B2A4B7262B6FDE00C1E073 /* VoteResultTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1069,6 +1094,7 @@
 				A4B2A2CA262AF96500C1E073 /* ValueStorableObservableNotifiable.swift in Sources */,
 				A4B2A320262B001C00C1E073 /* NKVPhoneFormatter.swift in Sources */,
 				A4B2A3D6262B0C5800C1E073 /* QueryDocumentSnapshot+JSON.swift in Sources */,
+				A4B2A4B2262B6F6C00C1E073 /* VoteResultViewController.swift in Sources */,
 				A4B2A466262B382300C1E073 /* Array+Unique.swift in Sources */,
 				A4B2A494262B60CC00C1E073 /* VoteOptionTableViewCell.swift in Sources */,
 				A4B2A391262B05C300C1E073 /* UIViewController+SVProgressHud.swift in Sources */,
@@ -1119,6 +1145,7 @@
 				A4B2A2F6262AFD3B00C1E073 /* FLTextField.swift in Sources */,
 				A4B2A431262B2EE700C1E073 /* MyVotesViewModel.swift in Sources */,
 				A4B2A47B262B4CB100C1E073 /* NSObject+ClassName.swift in Sources */,
+				A4B2A4B8262B6FDE00C1E073 /* VoteResultTableViewCell.swift in Sources */,
 				A4B2A2B8262AF92F00C1E073 /* Observable.swift in Sources */,
 				A4B2A39E262B07D800C1E073 /* Collection.swift in Sources */,
 				A4B2A32D262B003000C1E073 /* NKVFlagView.swift in Sources */,
@@ -1131,6 +1158,7 @@
 				A4B2A3C6262B0BD100C1E073 /* FirestoreDataLoader.swift in Sources */,
 				A4B2A40F262B182000C1E073 /* SettingsView+DisplayObjects.swift in Sources */,
 				A4B2A352262B00B200C1E073 /* FirebaseAuthenticator.swift in Sources */,
+				A4B2A4AA262B6D3100C1E073 /* VoteResultViewModel.swift in Sources */,
 				A4B2A2CF262AF97800C1E073 /* WeakObserver.swift in Sources */,
 				A4B2A402262B17FE00C1E073 /* SettingsView.swift in Sources */,
 				A4B2A2C0262AF93E00C1E073 /* StorableObservable.swift in Sources */,
