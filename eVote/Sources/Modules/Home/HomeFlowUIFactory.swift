@@ -13,6 +13,7 @@ protocol HomeFlowUIFactory {
     func makeSettingsViewController() -> SettingsViewController
     func makeMyVotesViewController() -> MyVotesViewController
     func makeHomeViewController() -> HomeViewController
+    func makeCreateVoteViewController(user: User) -> CreateVoteViewController
 }
 
 final class HomeUIFactory: HomeFlowUIFactory {
@@ -50,6 +51,13 @@ final class HomeUIFactory: HomeFlowUIFactory {
     func makeHomeViewController() -> HomeViewController {
         let viewModel = self.viewModelsFactory.makeHomeViewModel()
         let viewController = HomeViewController(viewModel: viewModel)
+        
+        return viewController
+    }
+    
+    func makeCreateVoteViewController(user: User) -> CreateVoteViewController {
+        let viewModel = self.viewModelsFactory.makeCreateVoteViewModel(user: user)
+        let viewController = CreateVoteViewController(viewModel: viewModel)
         
         return viewController
     }

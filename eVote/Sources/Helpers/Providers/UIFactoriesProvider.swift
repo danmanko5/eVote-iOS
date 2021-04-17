@@ -17,6 +17,7 @@ final class UIFactoriesProvider {
     let authenticator: Authenticator
     let logoutProvider: AuthenticationLogoutProvider
     let userDeletionProvider: AuthenticationUserDeletionProvider
+    let voteCreatorProvider: VoteCreatorProvider
     
     init(keyValueStorage: KeyValueStorage,
          urlHandler: URLHandler,
@@ -24,7 +25,8 @@ final class UIFactoriesProvider {
          firestore: Firestore,
          authenticator: Authenticator,
          logoutProvider: AuthenticationLogoutProvider,
-         userDeletionProvider: AuthenticationUserDeletionProvider) {
+         userDeletionProvider: AuthenticationUserDeletionProvider,
+         voteCreatorProvider: VoteCreatorProvider) {
         
         self.keyValueStorage = keyValueStorage
         self.urlHandler = urlHandler
@@ -33,6 +35,7 @@ final class UIFactoriesProvider {
         self.authenticator = authenticator
         self.logoutProvider = logoutProvider
         self.userDeletionProvider = userDeletionProvider
+        self.voteCreatorProvider = voteCreatorProvider
     }
     
     // MARK: - App
@@ -53,7 +56,8 @@ final class UIFactoriesProvider {
     private func makeHomeViewModelsFactory() -> HomeViewModelsFactory {
         let factory = HomeViewModelsFactory(urlHandler: self.urlHandler,
                                             logoutProvider: self.logoutProvider,
-                                            userDeletionProvider: self.userDeletionProvider)
+                                            userDeletionProvider: self.userDeletionProvider,
+                                            voteCreatorProvider: self.voteCreatorProvider)
         return factory
     }
     

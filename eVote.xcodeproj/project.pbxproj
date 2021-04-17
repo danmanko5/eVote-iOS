@@ -99,6 +99,12 @@
 		A4B2A436262B2F2400C1E073 /* MyVotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2A435262B2F2400C1E073 /* MyVotesViewController.swift */; };
 		A4B2A43E262B313800C1E073 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2A43D262B313800C1E073 /* HomeViewModel.swift */; };
 		A4B2A443262B315200C1E073 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2A442262B315200C1E073 /* HomeViewController.swift */; };
+		A4B2A44B262B333100C1E073 /* VoteOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2A44A262B333100C1E073 /* VoteOption.swift */; };
+		A4B2A450262B343A00C1E073 /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2A44F262B343A00C1E073 /* Vote.swift */; };
+		A4B2A455262B359E00C1E073 /* VoteCreatorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2A454262B359E00C1E073 /* VoteCreatorProvider.swift */; };
+		A4B2A45E262B368100C1E073 /* CreateVoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2A45D262B368100C1E073 /* CreateVoteViewModel.swift */; };
+		A4B2A466262B382300C1E073 /* Array+Unique.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2A465262B382300C1E073 /* Array+Unique.swift */; };
+		A4B2A46B262B3AD400C1E073 /* CreateVoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2A46A262B3AD400C1E073 /* CreateVoteViewController.swift */; };
 		BE25451C28D30408D2E5325C /* Pods_eVote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71424BF87F7F81903B984933 /* Pods_eVote.framework */; };
 /* End PBXBuildFile section */
 
@@ -222,6 +228,12 @@
 		A4B2A435262B2F2400C1E073 /* MyVotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyVotesViewController.swift; sourceTree = "<group>"; };
 		A4B2A43D262B313800C1E073 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		A4B2A442262B315200C1E073 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A4B2A44A262B333100C1E073 /* VoteOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteOption.swift; sourceTree = "<group>"; };
+		A4B2A44F262B343A00C1E073 /* Vote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
+		A4B2A454262B359E00C1E073 /* VoteCreatorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteCreatorProvider.swift; sourceTree = "<group>"; };
+		A4B2A45D262B368100C1E073 /* CreateVoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateVoteViewModel.swift; sourceTree = "<group>"; };
+		A4B2A465262B382300C1E073 /* Array+Unique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Unique.swift"; sourceTree = "<group>"; };
+		A4B2A46A262B3AD400C1E073 /* CreateVoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateVoteViewController.swift; sourceTree = "<group>"; };
 		B18ABE005E094BF71E6A80C0 /* Pods-eVote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eVote.debug.xcconfig"; path = "Target Support Files/Pods-eVote/Pods-eVote.debug.xcconfig"; sourceTree = "<group>"; };
 		F48C67530BD528CD2D2EE88D /* Pods-eVoteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eVoteTests.release.xcconfig"; path = "Target Support Files/Pods-eVoteTests/Pods-eVoteTests.release.xcconfig"; sourceTree = "<group>"; };
 		FC01072F2D0540796EAD2970 /* Pods_eVoteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eVoteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -383,6 +395,8 @@
 			isa = PBXGroup;
 			children = (
 				A4B2A210262AEB3600C1E073 /* User.swift */,
+				A4B2A44A262B333100C1E073 /* VoteOption.swift */,
+				A4B2A44F262B343A00C1E073 /* Vote.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -426,6 +440,7 @@
 				A4B2A3D5262B0C5800C1E073 /* QueryDocumentSnapshot+JSON.swift */,
 				A4B2A3DA262B0C9E00C1E073 /* Array+SafeIndex.swift */,
 				A4B2A425262B18D600C1E073 /* NSLayoutConstraint+Priority.swift */,
+				A4B2A465262B382300C1E073 /* Array+Unique.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -455,6 +470,7 @@
 				A4B2A21B262AEE8400C1E073 /* UIFactoriesProvider.swift */,
 				A4B2A2D8262AFBAB00C1E073 /* FlowCoordinatorsProvider.swift */,
 				A4B2A2F0262AFCB200C1E073 /* UserCreatorProvider.swift */,
+				A4B2A454262B359E00C1E073 /* VoteCreatorProvider.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -501,6 +517,7 @@
 				A4B2A3E7262B175900C1E073 /* Home */,
 				A4B2A3E8262B175F00C1E073 /* MyVotes */,
 				A4B2A3E9262B176700C1E073 /* Settings */,
+				A4B2A45C262B366F00C1E073 /* CreateVote */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -732,6 +749,15 @@
 				A4B2A42B262B193500C1E073 /* AppInfo.swift */,
 			);
 			path = AppInfo;
+			sourceTree = "<group>";
+		};
+		A4B2A45C262B366F00C1E073 /* CreateVote */ = {
+			isa = PBXGroup;
+			children = (
+				A4B2A45D262B368100C1E073 /* CreateVoteViewModel.swift */,
+				A4B2A46A262B3AD400C1E073 /* CreateVoteViewController.swift */,
+			);
+			path = CreateVote;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -977,6 +1003,7 @@
 			files = (
 				A4B2A22E262AEEFA00C1E073 /* URLHandler.swift in Sources */,
 				A4B2A23F262AEF5B00C1E073 /* AppFlowCoordinator.swift in Sources */,
+				A4B2A46B262B3AD400C1E073 /* CreateVoteViewController.swift in Sources */,
 				A4B2A3A8262B080400C1E073 /* Collectionable.swift in Sources */,
 				A4B2A297262AF33D00C1E073 /* Closures.swift in Sources */,
 				A4B2A2EC262AFC6900C1E073 /* ProfileSetupDataModel.swift in Sources */,
@@ -999,12 +1026,15 @@
 				A4B2A2CA262AF96500C1E073 /* ValueStorableObservableNotifiable.swift in Sources */,
 				A4B2A320262B001C00C1E073 /* NKVPhoneFormatter.swift in Sources */,
 				A4B2A3D6262B0C5800C1E073 /* QueryDocumentSnapshot+JSON.swift in Sources */,
+				A4B2A466262B382300C1E073 /* Array+Unique.swift in Sources */,
 				A4B2A391262B05C300C1E073 /* UIViewController+SVProgressHud.swift in Sources */,
+				A4B2A44B262B333100C1E073 /* VoteOption.swift in Sources */,
 				A4B2A211262AEB3600C1E073 /* User.swift in Sources */,
 				A4B2A34A262B009400C1E073 /* Authenticator.swift in Sources */,
 				A4B2A33C262B004900C1E073 /* CountryCode.swift in Sources */,
 				A4B2A252262AF00C00C1E073 /* UIView+Embed.swift in Sources */,
 				A4B2A3BB262B085E00C1E073 /* FirestorePageableCollection.swift in Sources */,
+				A4B2A450262B343A00C1E073 /* Vote.swift in Sources */,
 				A4B2A33A262B004900C1E073 /* PhoneExtension.swift in Sources */,
 				A4B2A1A4262AE89000C1E073 /* ViewController.swift in Sources */,
 				A4B2A283262AF2A900C1E073 /* ProfileSetupUIFactory.swift in Sources */,
@@ -1026,6 +1056,7 @@
 				A4B2A258262AF09800C1E073 /* HomeFlowCoordinator.swift in Sources */,
 				A4B2A33B262B004900C1E073 /* Country.swift in Sources */,
 				A4B2A3DB262B0C9E00C1E073 /* Array+SafeIndex.swift in Sources */,
+				A4B2A455262B359E00C1E073 /* VoteCreatorProvider.swift in Sources */,
 				A4B2A32E262B003000C1E073 /* TextFieldWithPattern.swift in Sources */,
 				A4B2A32C262B003000C1E073 /* NKVPhonePickerTextField.swift in Sources */,
 				A4B2A32F262B003000C1E073 /* NKVPhonePickerPresenter.swift in Sources */,
@@ -1040,6 +1071,7 @@
 				A4B2A2B8262AF92F00C1E073 /* Observable.swift in Sources */,
 				A4B2A39E262B07D800C1E073 /* Collection.swift in Sources */,
 				A4B2A32D262B003000C1E073 /* NKVFlagView.swift in Sources */,
+				A4B2A45E262B368100C1E073 /* CreateVoteViewModel.swift in Sources */,
 				A4B2A2F1262AFCB200C1E073 /* UserCreatorProvider.swift in Sources */,
 				A4B2A40A262B180E00C1E073 /* SettingsView+Data.swift in Sources */,
 				A4B2A27B262AF28A00C1E073 /* ProfileSetupFlowCoordinator.swift in Sources */,

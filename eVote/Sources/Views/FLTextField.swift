@@ -30,6 +30,18 @@ final class FLTextField: UIView {
         }
     }
     
+    var isTitleHidden: Bool = false {
+        didSet {
+            self.fieldNameLabel.isHidden = self.isTitleHidden
+        }
+    }
+    
+    var text: String = "" {
+        didSet {
+            self.textField.text = self.text
+        }
+    }
+    
     init(symbolsMaxCount: Int) {
         self.symbolsMaxCount = symbolsMaxCount
         super.init(frame: .zero)
