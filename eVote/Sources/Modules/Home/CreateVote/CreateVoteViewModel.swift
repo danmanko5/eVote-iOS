@@ -14,7 +14,7 @@ final class CreateVoteViewModel {
     
     private(set) var title: String = ""
     private(set) var description: String? = nil
-    private(set) var options: [VoteOption] = [VoteOption.empty, VoteOption.empty]
+    private(set) var options: [VoteOption] = [VoteOption(id: UUID().uuidString, name: "", voteCount: 0), VoteOption(id: UUID().uuidString, name: "", voteCount: 0)]
     
     var onUpdateOptions: VoidClosure?
     var onUpdate: VoidClosure?
@@ -61,7 +61,7 @@ final class CreateVoteViewModel {
     }
     
     func addOption() {
-        self.options.append(VoteOption.empty)
+        self.options.append(VoteOption(id: UUID().uuidString, name: "", voteCount: 0))
         self.onUpdateOptions?()
     }
 }

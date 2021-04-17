@@ -9,8 +9,6 @@ import Foundation
 
 struct VoteOption: Hashable, Codable {
     
-    static let empty: VoteOption = .init(id: UUID().uuidString, name: "", voteCount: 0)
-    
     let id: Identifier
     
     let name: String

@@ -15,4 +15,5 @@ typealias OptionalStringClosure = (String?) -> Void
 typealias UserClosure = (User) -> Void
 typealias OptionalUserClosure = (User?) -> Void
 typealias VoteClosure = (Vote) -> Void
+typealias OptionalVoteClosure = (Vote?) -> Void
 

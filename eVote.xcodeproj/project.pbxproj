@@ -108,6 +108,12 @@
 		A4B2A470262B46A600C1E073 /* VotesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2A46F262B46A600C1E073 /* VotesProvider.swift */; };
 		A4B2A476262B4AEB00C1E073 /* VoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2A475262B4AEB00C1E073 /* VoteTableViewCell.swift */; };
 		A4B2A47B262B4CB100C1E073 /* NSObject+ClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2A47A262B4CB100C1E073 /* NSObject+ClassName.swift */; };
+		A4B2A481262B5B7800C1E073 /* VoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2A480262B5B7800C1E073 /* VoteViewModel.swift */; };
+		A4B2A489262B5B9C00C1E073 /* VoteProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2A488262B5B9C00C1E073 /* VoteProvider.swift */; };
+		A4B2A48E262B5F5B00C1E073 /* VoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2A48D262B5F5B00C1E073 /* VoteViewController.swift */; };
+		A4B2A494262B60CC00C1E073 /* VoteOptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2A493262B60CC00C1E073 /* VoteOptionTableViewCell.swift */; };
+		A4B2A49F262B649100C1E073 /* VoteTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2A49E262B649100C1E073 /* VoteTableHeaderView.swift */; };
+		A4B2A4A4262B660000C1E073 /* VoteTableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2A4A3262B660000C1E073 /* VoteTableFooterView.swift */; };
 		BE25451C28D30408D2E5325C /* Pods_eVote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71424BF87F7F81903B984933 /* Pods_eVote.framework */; };
 /* End PBXBuildFile section */
 
@@ -240,6 +246,12 @@
 		A4B2A46F262B46A600C1E073 /* VotesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotesProvider.swift; sourceTree = "<group>"; };
 		A4B2A475262B4AEB00C1E073 /* VoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteTableViewCell.swift; sourceTree = "<group>"; };
 		A4B2A47A262B4CB100C1E073 /* NSObject+ClassName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+ClassName.swift"; sourceTree = "<group>"; };
+		A4B2A480262B5B7800C1E073 /* VoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteViewModel.swift; sourceTree = "<group>"; };
+		A4B2A488262B5B9C00C1E073 /* VoteProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteProvider.swift; sourceTree = "<group>"; };
+		A4B2A48D262B5F5B00C1E073 /* VoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteViewController.swift; sourceTree = "<group>"; };
+		A4B2A493262B60CC00C1E073 /* VoteOptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteOptionTableViewCell.swift; sourceTree = "<group>"; };
+		A4B2A49E262B649100C1E073 /* VoteTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteTableHeaderView.swift; sourceTree = "<group>"; };
+		A4B2A4A3262B660000C1E073 /* VoteTableFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteTableFooterView.swift; sourceTree = "<group>"; };
 		B18ABE005E094BF71E6A80C0 /* Pods-eVote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eVote.debug.xcconfig"; path = "Target Support Files/Pods-eVote/Pods-eVote.debug.xcconfig"; sourceTree = "<group>"; };
 		F48C67530BD528CD2D2EE88D /* Pods-eVoteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eVoteTests.release.xcconfig"; path = "Target Support Files/Pods-eVoteTests/Pods-eVoteTests.release.xcconfig"; sourceTree = "<group>"; };
 		FC01072F2D0540796EAD2970 /* Pods_eVoteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eVoteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -480,6 +492,7 @@
 				A4B2A2F0262AFCB200C1E073 /* UserCreatorProvider.swift */,
 				A4B2A454262B359E00C1E073 /* VoteCreatorProvider.swift */,
 				A4B2A46F262B46A600C1E073 /* VotesProvider.swift */,
+				A4B2A488262B5B9C00C1E073 /* VoteProvider.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -525,6 +538,7 @@
 				A4B2A261262AF0C600C1E073 /* HomeViewModelsFactory.swift */,
 				A4B2A3E7262B175900C1E073 /* Home */,
 				A4B2A3E8262B175F00C1E073 /* MyVotes */,
+				A4B2A47F262B5B6500C1E073 /* Vote */,
 				A4B2A3E9262B176700C1E073 /* Settings */,
 				A4B2A45C262B366F00C1E073 /* CreateVote */,
 			);
@@ -767,6 +781,26 @@
 				A4B2A46A262B3AD400C1E073 /* CreateVoteViewController.swift */,
 			);
 			path = CreateVote;
+			sourceTree = "<group>";
+		};
+		A4B2A47F262B5B6500C1E073 /* Vote */ = {
+			isa = PBXGroup;
+			children = (
+				A4B2A48D262B5F5B00C1E073 /* VoteViewController.swift */,
+				A4B2A480262B5B7800C1E073 /* VoteViewModel.swift */,
+				A4B2A492262B60B800C1E073 /* Views */,
+			);
+			path = Vote;
+			sourceTree = "<group>";
+		};
+		A4B2A492262B60B800C1E073 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A4B2A493262B60CC00C1E073 /* VoteOptionTableViewCell.swift */,
+				A4B2A49E262B649100C1E073 /* VoteTableHeaderView.swift */,
+				A4B2A4A3262B660000C1E073 /* VoteTableFooterView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1036,7 +1070,9 @@
 				A4B2A320262B001C00C1E073 /* NKVPhoneFormatter.swift in Sources */,
 				A4B2A3D6262B0C5800C1E073 /* QueryDocumentSnapshot+JSON.swift in Sources */,
 				A4B2A466262B382300C1E073 /* Array+Unique.swift in Sources */,
+				A4B2A494262B60CC00C1E073 /* VoteOptionTableViewCell.swift in Sources */,
 				A4B2A391262B05C300C1E073 /* UIViewController+SVProgressHud.swift in Sources */,
+				A4B2A4A4262B660000C1E073 /* VoteTableFooterView.swift in Sources */,
 				A4B2A44B262B333100C1E073 /* VoteOption.swift in Sources */,
 				A4B2A211262AEB3600C1E073 /* User.swift in Sources */,
 				A4B2A34A262B009400C1E073 /* Authenticator.swift in Sources */,
@@ -1054,6 +1090,7 @@
 				A4B2A43E262B313800C1E073 /* HomeViewModel.swift in Sources */,
 				A4B2A470262B46A600C1E073 /* VotesProvider.swift in Sources */,
 				A4B2A225262AEEDB00C1E073 /* KeyValueStorage.swift in Sources */,
+				A4B2A48E262B5F5B00C1E073 /* VoteViewController.swift in Sources */,
 				A4B2A2E7262AFC5600C1E073 /* ProfileSetupViewModel.swift in Sources */,
 				A4B2A414262B183200C1E073 /* SettingsView+Reusables.swift in Sources */,
 				A4B2A3FC262B17D600C1E073 /* SettingsActionCell.swift in Sources */,
@@ -1070,6 +1107,8 @@
 				A4B2A455262B359E00C1E073 /* VoteCreatorProvider.swift in Sources */,
 				A4B2A32E262B003000C1E073 /* TextFieldWithPattern.swift in Sources */,
 				A4B2A32C262B003000C1E073 /* NKVPhonePickerTextField.swift in Sources */,
+				A4B2A49F262B649100C1E073 /* VoteTableHeaderView.swift in Sources */,
+				A4B2A481262B5B7800C1E073 /* VoteViewModel.swift in Sources */,
 				A4B2A32F262B003000C1E073 /* NKVPhonePickerPresenter.swift in Sources */,
 				A4B2A2D9262AFBAB00C1E073 /* FlowCoordinatorsProvider.swift in Sources */,
 				A4B2A3F4262B17C300C1E073 /* SettingsGeneralCell.swift in Sources */,
@@ -1096,6 +1135,7 @@
 				A4B2A402262B17FE00C1E073 /* SettingsView.swift in Sources */,
 				A4B2A2C0262AF93E00C1E073 /* StorableObservable.swift in Sources */,
 				A4B2A2D4262AFB2C00C1E073 /* UserDefaults+KeyValueStorage.swift in Sources */,
+				A4B2A489262B5B9C00C1E073 /* VoteProvider.swift in Sources */,
 				A4B2A443262B315200C1E073 /* HomeViewController.swift in Sources */,
 				A4B2A436262B2F2400C1E073 /* MyVotesViewController.swift in Sources */,
 				A4B2A2DF262AFC3D00C1E073 /* ProfileSetupViewController.swift in Sources */,

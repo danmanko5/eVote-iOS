@@ -56,6 +56,12 @@ final class HomeFlowCoordinator: FlowCoordinator {
             
             sself.showCreateVoteViewController(from: vc)
         }
+        
+        homeViewController.onVote = { [weak self, weak homeViewController] vote in
+            guard let sself = self, let vc = homeViewController else { return }
+            
+            sself.showVoteViewController(vote: vote, from: vc)
+        }
     }
     
     func install() {
@@ -72,6 +78,12 @@ final class HomeFlowCoordinator: FlowCoordinator {
         
         let navigationController = self.uiFactory.makeNavigationController(with: viewController)
         sender.present(navigationController, animated: true, completion: nil)
+    }
+    
+    private func showVoteViewController(vote: Vote, from sender: UIViewController) {
+        let viewController = self.uiFactory.makeVoteViewController(vote: vote)
+        
+        sender.show(viewController, sender: nil)
     }
     
     private func showError(from sender: UIViewController, message: String) {
