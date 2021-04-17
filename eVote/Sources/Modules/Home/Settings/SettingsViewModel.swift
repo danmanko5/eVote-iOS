@@ -38,7 +38,8 @@ final class SettingsViewModel {
         }
         
         let actions: [SettingsView.Data.Section.Action] = [
-            .logout(SettingsView.DisplayObject.Action(title: "Logout", isDestructive: true))
+            .logout(SettingsView.DisplayObject.Action(title: "Logout", isDestructive: false)),
+            .delete(SettingsView.DisplayObject.Action(title: "Delete", isDestructive: true))
         ]
         
         self.sections = [

@@ -119,6 +119,18 @@ final class FirebaseAuthenticator: Authenticator & AuthenticationStateProvider &
     }
     
     func deleteUser(completion: @escaping BoolClosure) {
+        guard case AuthenticationState.authenticated(let user) = self.authenticationState.value else { return }
+        
+        let document = FirestoreDocument<User>(id: user.id, firestore: self.firestore)
+        document.delete { [weak self] (succeed) in
+            guard succeed else {
+                completion(false)
+                return
+            }
+            
+            self?.logout()
+            completion(true)
+        }
     }
     
     private func retrieveUserIfNeeded() {
