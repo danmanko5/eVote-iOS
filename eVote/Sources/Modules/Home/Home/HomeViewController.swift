@@ -12,8 +12,10 @@ final class HomeViewController: UIViewController {
     let viewModel: HomeViewModel
     
     private let createVoteButton = UIButton()
+    private let tableView = UITableView(frame: .zero, style: .plain)
     
     var onCreateVote: VoidClosure?
+    var onVote: VoteClosure?
     
     init(viewModel: HomeViewModel) {
         self.viewModel = viewModel
@@ -32,9 +34,21 @@ final class HomeViewController: UIViewController {
         self.title = "Home"
         
         self.setupViews()
+        
+        self.viewModel.onUpdate = { [weak self] in
+            self?.tableView.reloadData()
+        }
     }
     
     private func setupViews() {
+        self.tableView.backgroundColor = .white
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        
+        self.tableView.register(VoteTableViewCell.self, forCellReuseIdentifier: VoteTableViewCell.className)
+        
+        self.view.fl_addSubview(self.tableView)
+        
         self.createVoteButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
         self.createVoteButton.setTitle("Create Vote", for: .normal)
         self.createVoteButton.backgroundColor = .white
@@ -57,5 +71,34 @@ final class HomeViewController: UIViewController {
     
     @objc private func createVotePressed() {
         self.onCreateVote?()
+    }
+}
+
+extension HomeViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.viewModel.numberOfItems()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: VoteTableViewCell.className) as? VoteTableViewCell else { return UITableViewCell() }
+        
+        cell.vote = self.viewModel.vote(for: indexPath)
+        
+        return cell
+    }
+}
+
+extension HomeViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let vote = self.viewModel.vote(for: indexPath) else { return }
+        
+        self.tableView.deselectRow(at: indexPath, animated: true)
+        self.onVote?(vote)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 }

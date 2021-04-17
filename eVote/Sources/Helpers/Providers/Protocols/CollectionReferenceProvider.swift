@@ -16,5 +16,9 @@ extension CollectionReferenceProvider {
     var usersReference: CollectionReference {
         return self.firestore.collection(User.collectionName)
     }
+    
+    var votesReference: CollectionReference {
+        return self.firestore.collection(Vote.collectionName)
+    }
 }
 

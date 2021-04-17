@@ -13,15 +13,18 @@ final class HomeViewModelsFactory {
     let logoutProvider: AuthenticationLogoutProvider
     let userDeletionProvider: AuthenticationUserDeletionProvider
     let voteCreatorProvider: VoteCreatorProvider
+    let votesProvider: VotesProvider
 
     init(urlHandler: URLHandler,
          logoutProvider: AuthenticationLogoutProvider,
          userDeletionProvider: AuthenticationUserDeletionProvider,
-         voteCreatorProvider: VoteCreatorProvider) {
+         voteCreatorProvider: VoteCreatorProvider,
+         votesProvider: VotesProvider) {
         self.urlHandler = urlHandler
         self.logoutProvider = logoutProvider
         self.userDeletionProvider = userDeletionProvider
         self.voteCreatorProvider = voteCreatorProvider
+        self.votesProvider = votesProvider
     }
     
     func makeSettingsViewModel() -> SettingsViewModel {
@@ -37,7 +40,7 @@ final class HomeViewModelsFactory {
     }
     
     func makeHomeViewModel() -> HomeViewModel {
-        let viewModel = HomeViewModel()
+        let viewModel = HomeViewModel(votesProvider: self.votesProvider)
         return viewModel
     }
     

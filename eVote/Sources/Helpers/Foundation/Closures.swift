@@ -14,4 +14,5 @@ typealias StringClosure = (String) -> Void
 typealias OptionalStringClosure = (String?) -> Void
 typealias UserClosure = (User) -> Void
 typealias OptionalUserClosure = (User?) -> Void
-typealias ChoosePictureClosure = (UIImage?) -> Void
+typealias VoteClosure = (Vote) -> Void
+

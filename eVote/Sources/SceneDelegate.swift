@@ -36,6 +36,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             let userCreatorProvider = UserCreatorProvider(firestore: firestore)
             let voteCreatorProvider = VoteCreatorProvider(firestore: firestore)
+            let votesProvider = VotesProvider(firestore: firestore)
             
             let uiFactoriesProvider = UIFactoriesProvider(keyValueStorage: keyValueStorage,
                                                           urlHandler: urlHandler,
@@ -44,7 +45,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                                                           authenticator: firebaseAuthenticator,
                                                           logoutProvider: firebaseAuthenticator,
                                                           userDeletionProvider: firebaseAuthenticator,
-                                                          voteCreatorProvider: voteCreatorProvider)
+                                                          voteCreatorProvider: voteCreatorProvider,
+                                                          votesProvider: votesProvider)
             let flowCoordinatorsProvider = FlowCoordinatorsProvider(uiFactoriesProvider: uiFactoriesProvider,
                                                                     authenticationStateProvider: firebaseAuthenticator)
             

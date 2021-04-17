@@ -18,6 +18,7 @@ final class UIFactoriesProvider {
     let logoutProvider: AuthenticationLogoutProvider
     let userDeletionProvider: AuthenticationUserDeletionProvider
     let voteCreatorProvider: VoteCreatorProvider
+    let votesProvider: VotesProvider
     
     init(keyValueStorage: KeyValueStorage,
          urlHandler: URLHandler,
@@ -26,7 +27,8 @@ final class UIFactoriesProvider {
          authenticator: Authenticator,
          logoutProvider: AuthenticationLogoutProvider,
          userDeletionProvider: AuthenticationUserDeletionProvider,
-         voteCreatorProvider: VoteCreatorProvider) {
+         voteCreatorProvider: VoteCreatorProvider,
+         votesProvider: VotesProvider) {
         
         self.keyValueStorage = keyValueStorage
         self.urlHandler = urlHandler
@@ -36,6 +38,7 @@ final class UIFactoriesProvider {
         self.logoutProvider = logoutProvider
         self.userDeletionProvider = userDeletionProvider
         self.voteCreatorProvider = voteCreatorProvider
+        self.votesProvider = votesProvider
     }
     
     // MARK: - App
@@ -57,7 +60,8 @@ final class UIFactoriesProvider {
         let factory = HomeViewModelsFactory(urlHandler: self.urlHandler,
                                             logoutProvider: self.logoutProvider,
                                             userDeletionProvider: self.userDeletionProvider,
-                                            voteCreatorProvider: self.voteCreatorProvider)
+                                            voteCreatorProvider: self.voteCreatorProvider,
+                                            votesProvider: self.votesProvider)
         return factory
     }
     
