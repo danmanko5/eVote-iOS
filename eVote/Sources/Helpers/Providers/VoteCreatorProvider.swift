@@ -19,7 +19,7 @@ final class VoteCreatorProvider: FirestoreProvider {
     func createVote(user: User, title: String, description: String?, options: [VoteOption], completion: @escaping VoidClosure) {
         
         let id = UUID().uuidString
-        let vote = Vote(id: id, username: user.username, title: title, description: description, options: options)
+        let vote = Vote(id: id, username: user.username, creatorId: user.id, title: title, description: description, options: options)
         
         let document = FirestoreDocument<Vote>(id: id, firestore: self.firestore)
         document.update(element: vote) { (succeed) in

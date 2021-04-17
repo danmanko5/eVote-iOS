@@ -11,6 +11,14 @@ final class MyVotesViewController: UIViewController {
     
     let viewModel: MyVotesViewModel
     
+    private let tableView = UITableView(frame: .zero, style: .plain)
+    private lazy var segmentedController: UISegmentedControl = {
+        let items = self.viewModel.sections.map { $0.title }
+        return UISegmentedControl(items: items)
+    }()
+    
+    var onVote: VoteClosure?
+    
     init(viewModel: MyVotesViewModel) {
         self.viewModel = viewModel
         
@@ -25,6 +33,61 @@ final class MyVotesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "My Votes"
+        self.setupViews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.tableView.reloadData()
+    }
+    
+    private func setupViews() {
+        self.segmentedController.addTarget(self, action: #selector(segmentChanged(_:)), for: .valueChanged)
+        self.segmentedController.selectedSegmentIndex = self.viewModel.selectedSectionIndex
+        self.navigationItem.titleView = self.segmentedController
+        
+        self.tableView.backgroundColor = .white
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.tableFooterView = UIView()
+        
+        self.tableView.register(VoteTableViewCell.self, forCellReuseIdentifier: VoteTableViewCell.className)
+        
+        self.view.fl_addSubview(self.tableView)
+    }
+    
+    @objc private func segmentChanged(_ segmentedController: UISegmentedControl) {
+        self.viewModel.setSelectedSectionIndex(segmentedController.selectedSegmentIndex)
+        
+        self.tableView.reloadData()
+    }
+}
+extension MyVotesViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.viewModel.numberOfItems()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: VoteTableViewCell.className) as? VoteTableViewCell else { return UITableViewCell() }
+        
+        cell.vote = self.viewModel.vote(for: indexPath)
+        
+        return cell
+    }
+}
+
+extension MyVotesViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let vote = self.viewModel.vote(for: indexPath) else { return }
+        
+        self.tableView.deselectRow(at: indexPath, animated: true)
+        self.onVote?(vote)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 }

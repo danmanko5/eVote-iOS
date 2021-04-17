@@ -13,7 +13,7 @@ final class VoteProvider: FirestoreProvider {
     let firestore: Firestore
     let keyValueStorage: KeyValueStorage
     
-    private var participatedVotesIds: [Identifier] {
+    var participatedVotesIds: [Identifier] {
         set {
             self.keyValueStorage.set(newValue, forKey: KeyValueStorageKey.participatedVotes)
         }
@@ -43,7 +43,7 @@ final class VoteProvider: FirestoreProvider {
         updatedOptions.remove(at: optionIndex)
         updatedOptions.insert(updatedOption, at: optionIndex)
         
-        let updatedVote = Vote(id: vote.id, username: vote.username, title: vote.title, description: vote.description, options: updatedOptions)
+        let updatedVote = Vote(id: vote.id, username: vote.username, creatorId: vote.creatorId, title: vote.title, description: vote.description, options: updatedOptions)
         let document = FirestoreDocument<Vote>(id: vote.id, firestore: self.firestore)
         document.update(element: updatedVote) { [weak self] (succeed) in
             guard succeed else {

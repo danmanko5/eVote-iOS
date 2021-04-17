@@ -39,7 +39,7 @@ final class HomeFlowCoordinator: FlowCoordinator {
         let homeViewController = uiFactory.makeHomeViewController()
         homeViewController.tabBarItem = UITabBarItem(title: "Home", image: #imageLiteral(resourceName: "icon-tab-bar-home"), tag: 0)
         
-        let myVotesViewController = uiFactory.makeMyVotesViewController()
+        let myVotesViewController = uiFactory.makeMyVotesViewController(user: user)
         myVotesViewController.tabBarItem = UITabBarItem(title: "My Votes", image: #imageLiteral(resourceName: "icon-tab-bar-my-votes"), tag: 1)
         
         let settingsViewController = uiFactory.makeSettingsViewController()
@@ -59,6 +59,12 @@ final class HomeFlowCoordinator: FlowCoordinator {
         
         homeViewController.onVote = { [weak self, weak homeViewController] vote in
             guard let sself = self, let vc = homeViewController else { return }
+            
+            sself.showVoteViewController(vote: vote, from: vc)
+        }
+        
+        myVotesViewController.onVote = { [weak self, weak myVotesViewController] vote in
+            guard let sself = self, let vc = myVotesViewController else { return }
             
             sself.showVoteViewController(vote: vote, from: vc)
         }

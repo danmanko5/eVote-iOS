@@ -37,8 +37,8 @@ final class HomeViewModelsFactory {
         return viewModel
     }
     
-    func makeMyVotesViewModel() -> MyVotesViewModel {
-        let viewModel = MyVotesViewModel()
+    func makeMyVotesViewModel(user: User) -> MyVotesViewModel {
+        let viewModel = MyVotesViewModel(user: user, votesProvider: self.votesProvider, voteProvider: self.voteProvider)
         return viewModel
     }
     

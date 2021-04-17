@@ -12,6 +12,7 @@ struct Vote: Hashable, Collectionable, Codable {
     let id: Identifier
     
     let username: String
+    let creatorId: String
     let title: String
     let description: String?
     

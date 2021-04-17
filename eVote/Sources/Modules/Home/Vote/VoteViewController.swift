@@ -81,7 +81,7 @@ extension VoteViewController: UITableViewDataSource {
 extension VoteViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let option = self.viewModel.vote.options[safe: indexPath.row], self.viewModel.canVote else { return }
+        guard let option = self.viewModel.vote.options[safe: indexPath.row], !self.viewModel.hasParticipated else { return }
         
         self.tableView.deselectRow(at: indexPath, animated: true)
         
