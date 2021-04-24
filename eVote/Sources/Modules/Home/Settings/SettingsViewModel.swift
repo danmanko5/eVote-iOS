@@ -13,17 +13,20 @@ final class SettingsViewModel {
     let urlHandler: URLHandler
     let logoutProvider: AuthenticationLogoutProvider
     let userDeletionProvider: AuthenticationUserDeletionProvider
+    let keyValueStorage: KeyValueStorage
     
     private let sections: [SettingsView.Data.Section]
     
     init(user: User,
          urlHandler: URLHandler,
          logoutProvider: AuthenticationLogoutProvider,
-         userDeletionProvider: AuthenticationUserDeletionProvider) {
+         userDeletionProvider: AuthenticationUserDeletionProvider,
+         keyValueStorage: KeyValueStorage) {
         self.user = user
         self.urlHandler = urlHandler
         self.logoutProvider = logoutProvider
         self.userDeletionProvider = userDeletionProvider
+        self.keyValueStorage = keyValueStorage
         
         var links: [SettingsView.Data.Section.Link] = []
         if let privacyURL = AppInfo.privacyURL {
@@ -128,7 +131,9 @@ extension SettingsViewModel {
             case .logout:
                 self.logoutProvider.logout()
             case .delete:
-                self.userDeletionProvider.deleteUser(completion: { _ in })
+                self.userDeletionProvider.deleteUser(completion: { _ in
+                    self.keyValueStorage.set(nil, forKey: KeyValueStorageKey.privateKey)
+                })
             }
         }
     }

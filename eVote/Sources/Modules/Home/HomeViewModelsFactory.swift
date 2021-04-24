@@ -15,26 +15,30 @@ final class HomeViewModelsFactory {
     let voteCreatorProvider: VoteCreatorProvider
     let votesProvider: VotesProvider
     let voteProvider: VoteProvider
+    let keyValueStorage: KeyValueStorage
 
     init(urlHandler: URLHandler,
          logoutProvider: AuthenticationLogoutProvider,
          userDeletionProvider: AuthenticationUserDeletionProvider,
          voteCreatorProvider: VoteCreatorProvider,
          votesProvider: VotesProvider,
-         voteProvider: VoteProvider) {
+         voteProvider: VoteProvider,
+         keyValueStorage: KeyValueStorage) {
         self.urlHandler = urlHandler
         self.logoutProvider = logoutProvider
         self.userDeletionProvider = userDeletionProvider
         self.voteCreatorProvider = voteCreatorProvider
         self.votesProvider = votesProvider
         self.voteProvider = voteProvider
+        self.keyValueStorage = keyValueStorage
     }
     
     func makeSettingsViewModel(user: User) -> SettingsViewModel {
         let viewModel = SettingsViewModel(user: user,
                                           urlHandler: self.urlHandler,
                                           logoutProvider: self.logoutProvider,
-                                          userDeletionProvider: self.userDeletionProvider)
+                                          userDeletionProvider: self.userDeletionProvider,
+                                          keyValueStorage: self.keyValueStorage)
         return viewModel
     }
     

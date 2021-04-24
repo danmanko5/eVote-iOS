@@ -65,7 +65,8 @@ final class UIFactoriesProvider {
                                             userDeletionProvider: self.userDeletionProvider,
                                             voteCreatorProvider: self.voteCreatorProvider,
                                             votesProvider: self.votesProvider,
-                                            voteProvider: self.voteProvider)
+                                            voteProvider: self.voteProvider,
+                                            keyValueStorage: self.keyValueStorage)
         return factory
     }
     
