@@ -26,7 +26,7 @@ final class PhoneCodeViewModel {
     
     func confirmAuthentication(with code: String, completion: @escaping BoolClosure) {
         self.authenticator.confirmAuthentication(with: code) { (completed) in
-            if completed {
+            if completed && ((self.keyValueStorage.object(forKey: KeyValueStorageKey.privateKey) as? String) == nil) {
                 let key = String.randomString(length: 16)
                 self.keyValueStorage.set(key, forKey: KeyValueStorageKey.privateKey)
             }
