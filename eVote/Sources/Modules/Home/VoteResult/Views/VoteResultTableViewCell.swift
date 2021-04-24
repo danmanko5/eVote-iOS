@@ -11,7 +11,6 @@ final class VoteResultTableViewCell: UITableViewCell {
     
     private let titleLabel = UILabel()
     private let resultView = UIView()
-    private let resultLabel = UILabel()
     
     private var resultViewWidthConstraint: NSLayoutConstraint?
     
@@ -45,15 +44,12 @@ final class VoteResultTableViewCell: UITableViewCell {
         self.resultViewWidthConstraint = self.resultView.widthAnchor.constraint(equalToConstant: 0)
         self.resultViewWidthConstraint?.isActive = true
         
-        self.resultLabel.font = .preferredFont(forTextStyle: .footnote)
-        self.resultLabel.textColor = .white
-        
-        self.resultView.fl_addSubview(self.resultLabel, layoutConstraints: UIView.fl_constraintsCenter)
-        
         let resultViewStackView = UIStackView(arrangedSubviews: [self.resultView, UIView()])
         resultViewStackView.axis = .horizontal
         resultViewStackView.layer.borderWidth = 1
         resultViewStackView.layer.borderColor = UIColor.systemBlue.cgColor
+        resultViewStackView.layer.cornerRadius = 4
+        resultViewStackView.clipsToBounds = true
         
         let stackView = UIStackView(arrangedSubviews: [self.titleLabel, resultViewStackView])
         stackView.axis = .vertical
@@ -65,8 +61,15 @@ final class VoteResultTableViewCell: UITableViewCell {
     }
     
     private func updateViews() {
-        self.resultLabel.text = "\(self.rate)%"
+        guard let title = self.title else { return }
         
-        self.resultViewWidthConstraint?.constant = max(50, (UIScreen.main.bounds.width - 40) / 100 * CGFloat(self.rate))
+        let titleString = "\(title)(\(self.rate)%)"
+        let range = (titleString as NSString).range(of: "(\(self.rate)%)")
+
+        let mutableAttributedString = NSMutableAttributedString.init(string: titleString)
+        mutableAttributedString.addAttribute(NSAttributedString.Key.font, value: UIFont.preferredFont(forTextStyle: .body).bold(), range: range)
+        self.titleLabel.attributedText = mutableAttributedString
+        
+        self.resultViewWidthConstraint?.constant = (UIScreen.main.bounds.width - 40) / 100 * CGFloat(self.rate)
     }
 }

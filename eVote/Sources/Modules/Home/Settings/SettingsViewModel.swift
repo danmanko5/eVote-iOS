@@ -9,15 +9,18 @@ import Foundation
 
 final class SettingsViewModel {
     
+    let user: User
     let urlHandler: URLHandler
     let logoutProvider: AuthenticationLogoutProvider
     let userDeletionProvider: AuthenticationUserDeletionProvider
     
     private let sections: [SettingsView.Data.Section]
     
-    init(urlHandler: URLHandler,
+    init(user: User,
+         urlHandler: URLHandler,
          logoutProvider: AuthenticationLogoutProvider,
          userDeletionProvider: AuthenticationUserDeletionProvider) {
+        self.user = user
         self.urlHandler = urlHandler
         self.logoutProvider = logoutProvider
         self.userDeletionProvider = userDeletionProvider

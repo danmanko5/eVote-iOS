@@ -79,4 +79,8 @@ extension Vote {
         
         return Int((Double(option.voteCount) / Double(totalVotesCount)) * 100 )
     }
+    
+    func totalVotes() -> Int {
+        self.options.reduce(0,{ $0 + $1.voteCount })
+    }
 }

@@ -31,8 +31,7 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Home"
-        
+        self.setupNavigationBar()
         self.setupViews()
         
         self.viewModel.onUpdate = { [weak self] in
@@ -40,27 +39,43 @@ final class HomeViewController: UIViewController {
         }
     }
     
+    private func setupNavigationBar() {
+        self.navigationController?.navigationBar.makeTransparent()
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "icon-logo"))
+        
+        self.navigationItem.titleView = imageView
+    }
+    
     private func setupViews() {
         self.tableView.backgroundColor = .white
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.tableFooterView = UIView()
+        self.tableView.separatorStyle = .none
+        self.tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
         
         self.tableView.register(VoteTableViewCell.self, forCellReuseIdentifier: VoteTableViewCell.className)
         
-        self.view.fl_addSubview(self.tableView)
+        self.view.fl_addSubview(self.tableView) { (view, container) -> [NSLayoutConstraint] in
+            [
+                view.topAnchor.constraint(equalTo: container.safeAreaLayoutGuide.topAnchor),
+                view.bottomAnchor.constraint(equalTo: container.safeAreaLayoutGuide.bottomAnchor),
+                view.leadingAnchor.constraint(equalTo: container.safeAreaLayoutGuide.leadingAnchor),
+                view.trailingAnchor.constraint(equalTo: container.safeAreaLayoutGuide.trailingAnchor)
+            ]
+        }
         
         self.createVoteButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
-        self.createVoteButton.setTitle("Create Vote", for: .normal)
+        self.createVoteButton.setTitle("Create", for: .normal)
         self.createVoteButton.backgroundColor = .white
         self.createVoteButton.setTitleColor(UIColor.systemBlue, for: .normal)
-        self.createVoteButton.layer.cornerRadius = 4
+        self.createVoteButton.layer.cornerRadius = 10
         self.createVoteButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
         self.createVoteButton.addTarget(self, action: #selector(self.createVotePressed), for: .touchUpInside)
         self.createVoteButton.layer.shadowColor = UIColor.black.withAlphaComponent(0.3).cgColor
-        self.createVoteButton.layer.shadowRadius = 10
+        self.createVoteButton.layer.shadowRadius = 5
         self.createVoteButton.layer.shadowOpacity = 0.7
-        self.createVoteButton.layer.shadowOffset = CGSize(width: 0, height: 5)
+        self.createVoteButton.layer.shadowOffset = CGSize(width: 0, height: 3)
         
         self.view.fl_addSubview(self.createVoteButton) { (view, container) -> [NSLayoutConstraint] in
             [

@@ -42,7 +42,7 @@ final class HomeFlowCoordinator: FlowCoordinator {
         let myVotesViewController = uiFactory.makeMyVotesViewController(user: user)
         myVotesViewController.tabBarItem = UITabBarItem(title: "My Votes", image: #imageLiteral(resourceName: "icon-tab-bar-my-votes"), tag: 1)
         
-        let settingsViewController = uiFactory.makeSettingsViewController()
+        let settingsViewController = uiFactory.makeSettingsViewController(user: user)
         settingsViewController.tabBarItem = UITabBarItem(title: "Settings", image: #imageLiteral(resourceName: "icon-tab-bar-settings"), tag: 2)
         
         rootViewController.viewControllers = [

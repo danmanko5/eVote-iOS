@@ -35,11 +35,14 @@ final class VoteResultViewController: UIViewController {
     
     private func setupNavigationBar() {
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.donePressed))
+        doneButton.tintColor = UIColor.label
         self.navigationItem.rightBarButtonItem = doneButton
+        self.navigationController?.navigationBar.makeTransparent()
     }
     
     private func setupViews() {
         self.tableView.backgroundColor = .white
+        self.tableView.separatorStyle = .none
         self.tableView.allowsSelection = false
         self.tableView.dataSource = self
         self.tableView.delegate = self

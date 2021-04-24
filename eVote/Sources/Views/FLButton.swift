@@ -26,9 +26,9 @@ final class FLButton: UIButton {
     }
     
     private func setupView() {
-        self.layer.cornerRadius = 4
+        self.layer.cornerRadius = 10
         self.backgroundColor = .systemBlue
-        self.titleLabel?.font = .preferredFont(forTextStyle: .body)
+        self.titleLabel?.font = .preferredFont(forTextStyle: .title3)
         self.setTitleColor(UIColor.white, for: .normal)
     }
 }

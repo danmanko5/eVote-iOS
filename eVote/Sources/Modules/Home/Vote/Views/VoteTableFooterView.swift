@@ -41,7 +41,7 @@ final class VoteTableFooterView: UIView {
     private func setupViews() {
         
         self.voteButton.setTitle("Vote", for: .normal)
-        self.voteButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        self.voteButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
         self.voteButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
         self.voteButton.addTarget(self, action: #selector(self.votePressed), for: .touchUpInside)
         
@@ -54,7 +54,7 @@ final class VoteTableFooterView: UIView {
         stackView.axis = .vertical
         stackView.spacing = 10
         stackView.isLayoutMarginsRelativeArrangement = true
-        stackView.layoutMargins = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        stackView.layoutMargins = UIEdgeInsets(top: 40, left: 20, bottom: 20, right: 20)
         
         self.fl_addSubview(stackView)
     }

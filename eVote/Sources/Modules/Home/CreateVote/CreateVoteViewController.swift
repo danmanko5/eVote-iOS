@@ -54,7 +54,9 @@ final class CreateVoteViewController: UIViewController {
     
     private func setupNavigationBar() {
         let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.cancelPressed))
+        cancelButton.tintColor = UIColor.label
         self.navigationItem.rightBarButtonItem = cancelButton
+        self.navigationController?.navigationBar.makeTransparent()
     }
     
     private func setupViews() {
@@ -71,9 +73,16 @@ final class CreateVoteViewController: UIViewController {
                 constraint,
                 view.leadingAnchor.constraint(equalTo: container.leadingAnchor),
                 view.trailingAnchor.constraint(equalTo: container.trailingAnchor),
-                view.topAnchor.constraint(equalTo: container.topAnchor)
+                view.topAnchor.constraint(equalTo: container.safeAreaLayoutGuide.topAnchor)
             ]
         }
+        
+        let titleLabel = UILabel()
+        titleLabel.text = "New Vote"
+        titleLabel.textColor = .label
+        titleLabel.font = .preferredFont(forTextStyle: .title1)
+        titleLabel.textAlignment = .center
+        titleLabel.numberOfLines = 0
         
         self.titleTextField.title = "Vote's title"
         self.titleTextField.onDone = { [weak self] in
@@ -94,27 +103,35 @@ final class CreateVoteViewController: UIViewController {
             self?.updateViews()
         }
         
+        let optionsLabel = UILabel()
+        optionsLabel.text = "Options"
+        optionsLabel.font = .preferredFont(forTextStyle: .headline)
+        optionsLabel.textColor = .label
+        optionsLabel.textAlignment = .left
+        
         self.optionsStackView.axis = .vertical
         self.optionsStackView.spacing = 10
         
         self.addNewOptionButton.setTitle("Add new option", for: .normal)
         self.addNewOptionButton.setTitleColor(UIColor.systemBlue, for: .normal)
-        self.addNewOptionButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
         self.addNewOptionButton.addTarget(self, action: #selector(self.addNewOptionPressed), for: .touchUpInside)
         
         self.createButton.setTitle("Create Vote", for: .normal)
         self.createButton.addTarget(self, action: #selector(self.createPressed), for: .touchUpInside)
-        self.createButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        self.createButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
         self.createButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 38, bottom: 0, right: 38)
         
         let continueButtonStackView = UIStackView(arrangedSubviews: [UIView(), self.createButton, UIView()])
         continueButtonStackView.axis = .horizontal
         
-        let stackView = UIStackView(arrangedSubviews: [self.titleTextField, self.descriptionTextField, self.optionsStackView, self.addNewOptionButton, continueButtonStackView])
+        let stackView = UIStackView(arrangedSubviews: [titleLabel, self.titleTextField, self.descriptionTextField, optionsLabel, self.optionsStackView, self.addNewOptionButton, continueButtonStackView])
         stackView.axis = .vertical
         stackView.spacing = 25
+        stackView.setCustomSpacing(35, after: titleLabel)
+        stackView.setCustomSpacing(7, after: optionsLabel)
+        stackView.setCustomSpacing(5, after: self.optionsStackView)
         stackView.isLayoutMarginsRelativeArrangement = true
-        stackView.layoutMargins = UIEdgeInsets(top: 60, left: 20, bottom: 30, right: 20)
+        stackView.layoutMargins = UIEdgeInsets(top: 30, left: 20, bottom: 30, right: 20)
         
         self.scrollView.fl_addSubview(stackView) { (view, container) -> [NSLayoutConstraint] in
             [
@@ -134,7 +151,6 @@ final class CreateVoteViewController: UIViewController {
         
         for option in self.viewModel.options {
             let textField = FLTextField(symbolsMaxCount: 40)
-            textField.placeholder = "Enter your option here"
             textField.text = option.name
             textField.isTitleHidden = true
             

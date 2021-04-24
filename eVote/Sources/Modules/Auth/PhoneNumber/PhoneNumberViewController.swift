@@ -9,7 +9,7 @@ import UIKit
 
 final class PhoneNumberViewController: UIViewController {
     
-    private static let defaultSatusText = "We’ll send you a text verification code"
+    private static let defaultSatusText = "We’ll send you a text with verification code"
     
     var onDone: StringClosure?
     var onCountry: VoidClosure?
@@ -19,8 +19,8 @@ final class PhoneNumberViewController: UIViewController {
     private let titleLabel = UILabel(frame: .zero)
     private let statusLabel = UILabel(frame: .zero)
     private let countryCodeButton = UIButton(frame: .zero)
-    private let phoneTextField = UITextField()
-    private let continueButton = UIButton()
+    private let phoneTextField = TextFieldWithInsets(insets: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10))
+    private let continueButton = FLButton()
     private let activityIndicatorView = UIActivityIndicatorView(frame: .zero)
     
     private var scrollViewBottomConstraint: NSLayoutConstraint?
@@ -54,7 +54,7 @@ final class PhoneNumberViewController: UIViewController {
         self.view.backgroundColor = .systemBackground
         
         self.titleLabel.text = "Enter your mobile number"
-        self.titleLabel.textColor = .systemBlue
+        self.titleLabel.textColor = .label
         self.titleLabel.font = .preferredFont(forTextStyle: .title1)
         self.titleLabel.textAlignment = .center
         self.titleLabel.numberOfLines = 0
@@ -68,41 +68,37 @@ final class PhoneNumberViewController: UIViewController {
         self.countryCodeButton.setTitleColor(.label, for: .normal)
         self.countryCodeButton.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         self.countryCodeButton.setContentHuggingPriority(.defaultLow, for: .horizontal)
-        self.countryCodeButton.titleLabel?.font = .preferredFont(forTextStyle: .title2)
-        self.countryCodeButton.widthAnchor.constraint(greaterThanOrEqualToConstant: 25).isActive = true
-        self.countryCodeButton.widthAnchor.constraint(lessThanOrEqualToConstant: 90).isActive = true
+        self.countryCodeButton.titleLabel?.font = .preferredFont(forTextStyle: .body)
+        self.countryCodeButton.layer.cornerRadius = 10
+        self.countryCodeButton.layer.borderWidth = 1
+        self.countryCodeButton.layer.borderColor = UIColor.label.cgColor
+        self.countryCodeButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
         self.updateCountryButton()
         
         self.phoneTextField.keyboardType = .phonePad
         self.phoneTextField.delegate = self
-        self.phoneTextField.font = .preferredFont(forTextStyle: .title2)
+        self.phoneTextField.font = .preferredFont(forTextStyle: .body)
         self.phoneTextField.textColor = .label
         self.phoneTextField.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
         self.phoneTextField.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         self.phoneTextField.widthAnchor.constraint(greaterThanOrEqualToConstant: 125).isActive = true
+        self.phoneTextField.layer.cornerRadius = 10
+        self.phoneTextField.layer.borderWidth = 1
+        self.phoneTextField.layer.borderColor = UIColor.label.cgColor
         self.phoneTextField.becomeFirstResponder()
         
-        let phoneNumberSeparator = UIView()
-        phoneNumberSeparator.backgroundColor = .separator
-        phoneNumberSeparator.widthAnchor.constraint(equalToConstant: 1).isActive = true
-        
-        let phoneNumberStackView = UIStackView(arrangedSubviews: [self.countryCodeButton, phoneNumberSeparator, self.phoneTextField])
+        let phoneNumberStackView = UIStackView(arrangedSubviews: [self.countryCodeButton, self.phoneTextField])
         phoneNumberStackView.axis = .horizontal
         phoneNumberStackView.distribution = .fill
         phoneNumberStackView.spacing = 10
-        phoneNumberStackView.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        phoneNumberStackView.heightAnchor.constraint(equalToConstant: 35).isActive = true
         
-        let separatorView = UIView()
-        separatorView.backgroundColor = .separator
-        separatorView.heightAnchor.constraint(equalToConstant: 1).isActive = true
-        
-        let stackView = UIStackView(arrangedSubviews: [phoneNumberStackView, separatorView,  self.statusLabel])
+        let stackView = UIStackView(arrangedSubviews: [phoneNumberStackView,  self.statusLabel])
         stackView.axis = .vertical
         stackView.distribution = .fill
-        stackView.spacing = 2
+        stackView.spacing = 10
         
         self.continueButton.setTitle("Continue", for: .normal)
-        self.continueButton.setTitleColor(.label, for: .normal)
         self.continueButton.addTarget(self, action: #selector(self.sendButtonPressed), for: .touchUpInside)
         self.continueButton.isEnabled = false
         
@@ -132,8 +128,8 @@ final class PhoneNumberViewController: UIViewController {
         self.view.fl_addSubview(self.continueButton) { (view, container) -> [NSLayoutConstraint] in
             [
                 view.centerXAnchor.constraint(equalTo: container.centerXAnchor),
-                view.heightAnchor.constraint(equalToConstant: 32),
-                view.widthAnchor.constraint(equalToConstant: 135)
+                view.heightAnchor.constraint(equalToConstant: 44),
+                view.widthAnchor.constraint(equalToConstant: 169)
             ]
         }
         
@@ -216,4 +212,3 @@ extension PhoneNumberViewController: UITextFieldDelegate {
         return true
     }
 }
-

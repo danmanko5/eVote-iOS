@@ -30,6 +30,8 @@ final class VoteViewController: UIViewController {
         super.viewDidLoad()
         
         self.setupViews()
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.label
     }
     
     private func setupViews() {

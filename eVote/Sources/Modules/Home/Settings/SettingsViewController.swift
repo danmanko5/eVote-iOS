@@ -29,7 +29,8 @@ final class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Settings"
+        self.title = self.viewModel.user.username
+        self.navigationController?.navigationBar.makeTransparent()
         self.view.backgroundColor = .systemBackground
         
         SettingsView.Reusables.CellType.allCases.forEach {

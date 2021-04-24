@@ -63,6 +63,9 @@ final class AuthFlowCoordinator: FlowCoordinator {
     
     private func showPhoneCodeViewController(from sender: UIViewController) {
         let viewController = self.uiFactory.makePhoneCodeViewController()
+        viewController.onCancel = { [weak viewController] in
+            viewController?.navigationController?.popViewController(animated: true)
+        }
         
         sender.show(viewController, sender: nil)
     }

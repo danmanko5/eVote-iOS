@@ -19,6 +19,8 @@ final class PhoneCodeViewController: UIViewController {
     private let resendButton = UIButton(frame: .zero)
     
     private var scrollViewBottomConstraint: NSLayoutConstraint?
+    
+    var onCancel: VoidClosure?
    
     init(viewModel: PhoneCodeViewModel) {
         self.viewModel = viewModel
@@ -44,7 +46,7 @@ final class PhoneCodeViewController: UIViewController {
     
     private func setupNavigationBar() {
         self.navigationController?.navigationBar.makeTransparent()
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(self.onCancelClicked))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(self.onCancelClicked))
         self.navigationItem.leftBarButtonItem?.tintColor = .label
     }
     
@@ -52,7 +54,7 @@ final class PhoneCodeViewController: UIViewController {
         self.view.backgroundColor = .systemBackground
         
         self.titleLabel.text = "Enter Verification Code"
-        self.titleLabel.textColor = .systemBlue
+        self.titleLabel.textColor = .label
         self.titleLabel.font = .preferredFont(forTextStyle: .title1)
         self.titleLabel.textAlignment = .center
         self.titleLabel.numberOfLines = 0
@@ -62,24 +64,23 @@ final class PhoneCodeViewController: UIViewController {
         self.codeEntryView.length = 6
         self.codeEntryView.entryFont = .preferredFont(forTextStyle: .title2)
         self.codeEntryView.entryTextColour = .label
-        self.codeEntryView.entryCornerRadius = 2
-        self.codeEntryView.entryBackgroundColour = .systemGray
-        self.codeEntryView.entryEditingBackgroundColour = .systemGray
-        self.codeEntryView.entryBorderWidth = 0
+        self.codeEntryView.entryCornerRadius = 10
+        self.codeEntryView.entryBackgroundColour = .systemBackground
+        self.codeEntryView.entryEditingBackgroundColour = .systemBackground
+        self.codeEntryView.entryBorderWidth = 1
+        self.codeEntryView.entryBorderColour = UIColor.label
+        self.codeEntryView.entryDefaultBorderColour = UIColor.label
         self.codeEntryView.spacing = 10
-        self.resendButton.widthAnchor.constraint(equalToConstant: 220).isActive = true
         
         let codeEntryViewStackView = UIStackView(arrangedSubviews: [UIView(), self.codeEntryView, UIView()])
         codeEntryViewStackView.axis = .horizontal
         codeEntryViewStackView.distribution = .equalCentering
         codeEntryViewStackView.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
-        self.resendButton.setTitle("Resend", for: .normal)
+        self.resendButton.setTitle("Resend Code", for: .normal)
         self.resendButton.addTarget(self, action: #selector(self.resendButtonPressed), for: .touchUpInside)
-        self.resendButton.layer.cornerRadius = 4
-        self.resendButton.backgroundColor = .systemGray
         self.resendButton.titleLabel?.font = .preferredFont(forTextStyle: .body)
-        self.resendButton.setTitleColor(.label, for: .normal)
+        self.resendButton.setTitleColor(.systemBlue, for: .normal)
         self.resendButton.widthAnchor.constraint(equalToConstant: 135).isActive = true
         
         let resendButtonStackView = UIStackView(arrangedSubviews: [UIView(), self.resendButton, UIView()])
@@ -89,8 +90,8 @@ final class PhoneCodeViewController: UIViewController {
         
         let stackView = UIStackView(arrangedSubviews: [self.titleLabel, codeEntryViewStackView, resendButtonStackView])
         stackView.axis = .vertical
-        stackView.distribution = .equalSpacing
         stackView.spacing = 44
+        stackView.setCustomSpacing(10, after: codeEntryViewStackView)
         
         self.view.fl_addSubview(stackView) { (view, container) -> [NSLayoutConstraint] in
             [
@@ -102,8 +103,8 @@ final class PhoneCodeViewController: UIViewController {
     }
     
     @objc private func onCancelClicked() {
-        self.navigationController?.dismiss(animated: true, completion: nil)
         self.viewModel.cancel()
+        self.onCancel?()
     }
     
     private func updateLoadingState() {

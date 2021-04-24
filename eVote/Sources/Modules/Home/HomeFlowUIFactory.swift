@@ -10,7 +10,7 @@ import UIKit
 protocol HomeFlowUIFactory {
     func makeRootViewController() -> UITabBarController
     func makeNavigationController(with rootViewController: UIViewController) -> UINavigationController
-    func makeSettingsViewController() -> SettingsViewController
+    func makeSettingsViewController(user: User) -> SettingsViewController
     func makeMyVotesViewController(user: User) -> MyVotesViewController
     func makeHomeViewController() -> HomeViewController
     func makeCreateVoteViewController(user: User) -> CreateVoteViewController
@@ -36,8 +36,8 @@ final class HomeUIFactory: HomeFlowUIFactory {
         return navigationController
     }
     
-    func makeSettingsViewController() -> SettingsViewController {
-        let viewModel = self.viewModelsFactory.makeSettingsViewModel()
+    func makeSettingsViewController(user: User) -> SettingsViewController {
+        let viewModel = self.viewModelsFactory.makeSettingsViewModel(user: user)
         let viewController = SettingsViewController(viewModel: viewModel)
         
         return viewController

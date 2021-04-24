@@ -30,8 +30,9 @@ final class VoteTableHeaderView: UIView {
     }
     
     private func setupViews() {
-        self.titleLabel.font = .preferredFont(forTextStyle: .title2)
+        self.titleLabel.font = UIFont.preferredFont(forTextStyle: .title3).bold()
         self.titleLabel.textColor = .label
+        self.titleLabel.textAlignment = .center
         self.titleLabel.numberOfLines = 0
         
         self.descriptionLabel.font = .preferredFont(forTextStyle: .body)

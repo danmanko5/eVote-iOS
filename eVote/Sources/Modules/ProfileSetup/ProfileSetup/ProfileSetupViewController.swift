@@ -68,7 +68,7 @@ final class ProfileSetupViewController: UIViewController {
             ]
         }
         
-        self.usernameTextField.title = "Name"
+        self.usernameTextField.title = "Username"
         self.usernameTextField.onDone = { [weak self] in
             self?.usernameTextField.resignActive()
             self?.continuePressed()
@@ -80,7 +80,7 @@ final class ProfileSetupViewController: UIViewController {
         
         self.continueButton.setTitle("Continue", for: .normal)
         self.continueButton.addTarget(self, action: #selector(self.continuePressed), for: .touchUpInside)
-        self.continueButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        self.continueButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
         self.continueButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 38, bottom: 0, right: 38)
         
         let continueButtonStackView = UIStackView(arrangedSubviews: [UIView(), self.continueButton, UIView()])

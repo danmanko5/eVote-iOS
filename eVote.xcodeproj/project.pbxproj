@@ -118,6 +118,8 @@
 		A4B2A4AA262B6D3100C1E073 /* VoteResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2A4A9262B6D3100C1E073 /* VoteResultViewModel.swift */; };
 		A4B2A4B2262B6F6C00C1E073 /* VoteResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2A4B1262B6F6C00C1E073 /* VoteResultViewController.swift */; };
 		A4B2A4B8262B6FDE00C1E073 /* VoteResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2A4B7262B6FDE00C1E073 /* VoteResultTableViewCell.swift */; };
+		A4C4F0312634982E00AB9C8B /* TextFieldWithInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4F0302634982E00AB9C8B /* TextFieldWithInsets.swift */; };
+		A4C4F0362634A4A600AB9C8B /* UIFont+Traits.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4F0352634A4A600AB9C8B /* UIFont+Traits.swift */; };
 		BE25451C28D30408D2E5325C /* Pods_eVote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71424BF87F7F81903B984933 /* Pods_eVote.framework */; };
 /* End PBXBuildFile section */
 
@@ -260,6 +262,8 @@
 		A4B2A4A9262B6D3100C1E073 /* VoteResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteResultViewModel.swift; sourceTree = "<group>"; };
 		A4B2A4B1262B6F6C00C1E073 /* VoteResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteResultViewController.swift; sourceTree = "<group>"; };
 		A4B2A4B7262B6FDE00C1E073 /* VoteResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteResultTableViewCell.swift; sourceTree = "<group>"; };
+		A4C4F0302634982E00AB9C8B /* TextFieldWithInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithInsets.swift; sourceTree = "<group>"; };
+		A4C4F0352634A4A600AB9C8B /* UIFont+Traits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Traits.swift"; sourceTree = "<group>"; };
 		B18ABE005E094BF71E6A80C0 /* Pods-eVote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eVote.debug.xcconfig"; path = "Target Support Files/Pods-eVote/Pods-eVote.debug.xcconfig"; sourceTree = "<group>"; };
 		F48C67530BD528CD2D2EE88D /* Pods-eVoteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eVoteTests.release.xcconfig"; path = "Target Support Files/Pods-eVoteTests/Pods-eVoteTests.release.xcconfig"; sourceTree = "<group>"; };
 		FC01072F2D0540796EAD2970 /* Pods_eVoteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eVoteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -468,6 +472,7 @@
 				A4B2A425262B18D600C1E073 /* NSLayoutConstraint+Priority.swift */,
 				A4B2A465262B382300C1E073 /* Array+Unique.swift */,
 				A4B2A47A262B4CB100C1E073 /* NSObject+ClassName.swift */,
+				A4C4F0352634A4A600AB9C8B /* UIFont+Traits.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -479,6 +484,7 @@
 				A4B2A2FA262AFD5D00C1E073 /* FLButton.swift */,
 				A4B2A420262B188D00C1E073 /* HorizontalSeparatorView.swift */,
 				A4B2A475262B4AEB00C1E073 /* VoteTableViewCell.swift */,
+				A4C4F0302634982E00AB9C8B /* TextFieldWithInsets.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1083,6 +1089,7 @@
 				A4B2A339262B004900C1E073 /* NKVSource.swift in Sources */,
 				A4B2A419262B185400C1E073 /* SettingsViewController.swift in Sources */,
 				A4B2A268262AF1BC00C1E073 /* AuthFlowCoordinator.swift in Sources */,
+				A4C4F0312634982E00AB9C8B /* TextFieldWithInsets.swift in Sources */,
 				A4B2A275262AF1F100C1E073 /* AuthViewModelsFactory.swift in Sources */,
 				A4B2A42C262B193500C1E073 /* AppInfo.swift in Sources */,
 				A4B2A245262AEF8300C1E073 /* FlowCoordinator.swift in Sources */,
@@ -1148,6 +1155,7 @@
 				A4B2A365262B022800C1E073 /* PhoneCodeViewModel.swift in Sources */,
 				A4B2A2F6262AFD3B00C1E073 /* FLTextField.swift in Sources */,
 				A4B2A431262B2EE700C1E073 /* MyVotesViewModel.swift in Sources */,
+				A4C4F0362634A4A600AB9C8B /* UIFont+Traits.swift in Sources */,
 				A4B2A47B262B4CB100C1E073 /* NSObject+ClassName.swift in Sources */,
 				A4B2A4B8262B6FDE00C1E073 /* VoteResultTableViewCell.swift in Sources */,
 				A4B2A2B8262AF92F00C1E073 /* Observable.swift in Sources */,

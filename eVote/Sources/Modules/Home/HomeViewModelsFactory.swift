@@ -30,8 +30,9 @@ final class HomeViewModelsFactory {
         self.voteProvider = voteProvider
     }
     
-    func makeSettingsViewModel() -> SettingsViewModel {
-        let viewModel = SettingsViewModel(urlHandler: self.urlHandler,
+    func makeSettingsViewModel(user: User) -> SettingsViewModel {
+        let viewModel = SettingsViewModel(user: user,
+                                          urlHandler: self.urlHandler,
                                           logoutProvider: self.logoutProvider,
                                           userDeletionProvider: self.userDeletionProvider)
         return viewModel

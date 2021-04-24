@@ -46,15 +46,25 @@ final class MyVotesViewController: UIViewController {
         self.segmentedController.addTarget(self, action: #selector(segmentChanged(_:)), for: .valueChanged)
         self.segmentedController.selectedSegmentIndex = self.viewModel.selectedSectionIndex
         self.navigationItem.titleView = self.segmentedController
+        self.navigationController?.navigationBar.makeTransparent()
         
         self.tableView.backgroundColor = .white
+        self.tableView.separatorStyle = .none
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.tableFooterView = UIView()
+        self.tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
         
         self.tableView.register(VoteTableViewCell.self, forCellReuseIdentifier: VoteTableViewCell.className)
         
-        self.view.fl_addSubview(self.tableView)
+        self.view.fl_addSubview(self.tableView) { (view, container) -> [NSLayoutConstraint] in
+            [
+                view.topAnchor.constraint(equalTo: container.safeAreaLayoutGuide.topAnchor),
+                view.bottomAnchor.constraint(equalTo: container.safeAreaLayoutGuide.bottomAnchor),
+                view.leadingAnchor.constraint(equalTo: container.safeAreaLayoutGuide.leadingAnchor),
+                view.trailingAnchor.constraint(equalTo: container.safeAreaLayoutGuide.trailingAnchor)
+            ]
+        }
     }
     
     @objc private func segmentChanged(_ segmentedController: UISegmentedControl) {

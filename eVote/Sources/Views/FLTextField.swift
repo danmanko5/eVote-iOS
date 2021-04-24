@@ -9,7 +9,7 @@ import UIKit
 
 final class FLTextField: UIView {
     
-    private let textField = UITextField()
+    private let textField = TextFieldWithInsets(insets: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10))
     private let fieldNameLabel = UILabel()
     private let symbolsLeftLabel = UILabel()
     
@@ -56,16 +56,17 @@ final class FLTextField: UIView {
     
     private func setupViews() {
         self.fieldNameLabel.font = .preferredFont(forTextStyle: .headline)
-        self.fieldNameLabel.textColor = .systemBlue
+        self.fieldNameLabel.textColor = .label
         self.fieldNameLabel.textAlignment = .left
         
         self.textField.font = .preferredFont(forTextStyle: .body)
         self.textField.textColor = .label
         self.textField.delegate = self
-        
-        let separatorView = UIView()
-        separatorView.backgroundColor = .separator
-        separatorView.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        self.textField.layer.borderColor = UIColor.label.cgColor
+        self.textField.layer.borderWidth = 1
+        self.textField.layer.cornerRadius = 10
+        self.textField.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        self.textField.autocapitalizationType = .none
         
         self.symbolsLeftLabel.font = .preferredFont(forTextStyle: .caption2)
         self.symbolsLeftLabel.textColor = .secondaryLabel
@@ -74,10 +75,9 @@ final class FLTextField: UIView {
         let symbolsLeftStackView = UIStackView(arrangedSubviews: [UIView(), self.symbolsLeftLabel])
         symbolsLeftStackView.axis = .horizontal
         
-        let stackView = UIStackView(arrangedSubviews: [self.fieldNameLabel, self.textField, separatorView, symbolsLeftStackView])
+        let stackView = UIStackView(arrangedSubviews: [self.fieldNameLabel, self.textField, symbolsLeftStackView])
         stackView.axis = .vertical
         stackView.spacing = 7
-        stackView.setCustomSpacing(0, after: self.textField)
         
         self.fl_addSubview(stackView)
     }
