@@ -11,4 +11,6 @@ enum AppInfo {
     
     static let privacyURL = URL(string: "https://google.com")
     static let termsURL = URL(string: "https://google.com")
+    
+    static var publicKey: String = "nusecnyuloplopcd"
 }

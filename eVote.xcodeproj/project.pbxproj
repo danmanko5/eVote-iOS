@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		58774FFFAD502B80A8C55482 /* Pods_eVoteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC01072F2D0540796EAD2970 /* Pods_eVoteTests.framework */; };
 		6B793DCEF13344C51E86B9D7 /* Pods_eVote_eVoteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F51D7664C732EE10878CE1D /* Pods_eVote_eVoteUITests.framework */; };
+		A42C428B262B86E2003ADF89 /* AESProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C428A262B86E2003ADF89 /* AESProvider.swift */; };
 		A4B2A1A0262AE89000C1E073 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2A19F262AE89000C1E073 /* AppDelegate.swift */; };
 		A4B2A1A2262AE89000C1E073 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2A1A1262AE89000C1E073 /* SceneDelegate.swift */; };
 		A4B2A1A4262AE89000C1E073 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2A1A3262AE89000C1E073 /* ViewController.swift */; };
@@ -144,6 +145,7 @@
 		5F51D7664C732EE10878CE1D /* Pods_eVote_eVoteUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eVote_eVoteUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66AB50270E4F7AA3BC7901AB /* Pods-eVote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eVote.release.xcconfig"; path = "Target Support Files/Pods-eVote/Pods-eVote.release.xcconfig"; sourceTree = "<group>"; };
 		71424BF87F7F81903B984933 /* Pods_eVote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eVote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A42C428A262B86E2003ADF89 /* AESProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AESProvider.swift; sourceTree = "<group>"; };
 		A4B2A19C262AE89000C1E073 /* eVote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eVote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4B2A19F262AE89000C1E073 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4B2A1A1262AE89000C1E073 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -499,6 +501,7 @@
 				A4B2A454262B359E00C1E073 /* VoteCreatorProvider.swift */,
 				A4B2A46F262B46A600C1E073 /* VotesProvider.swift */,
 				A4B2A488262B5B9C00C1E073 /* VoteProvider.swift */,
+				A42C428A262B86E2003ADF89 /* AESProvider.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -1134,6 +1137,7 @@
 				A4B2A32E262B003000C1E073 /* TextFieldWithPattern.swift in Sources */,
 				A4B2A32C262B003000C1E073 /* NKVPhonePickerTextField.swift in Sources */,
 				A4B2A49F262B649100C1E073 /* VoteTableHeaderView.swift in Sources */,
+				A42C428B262B86E2003ADF89 /* AESProvider.swift in Sources */,
 				A4B2A481262B5B7800C1E073 /* VoteViewModel.swift in Sources */,
 				A4B2A32F262B003000C1E073 /* NKVPhonePickerPresenter.swift in Sources */,
 				A4B2A2D9262AFBAB00C1E073 /* FlowCoordinatorsProvider.swift in Sources */,
