@@ -39,13 +39,13 @@ class User: Hashable, Collectionable, Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         self.id = try container.decode(String.self, forKey: .id)
-        self.username = (try container.decode(String.self, forKey: .username)).decrypted
+        self.username = (try container.decode(String.self, forKey: .username)).privateDecrypted
     }
 
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         
         try container.encode(self.id, forKey: .id)
-        try container.encode(self.username.encrypted, forKey: .username)
+        try container.encode(self.username.privateEncrypted, forKey: .username)
     }
 }

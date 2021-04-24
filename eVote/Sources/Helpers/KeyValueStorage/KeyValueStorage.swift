@@ -14,4 +14,5 @@ protocol KeyValueStorage: class {
 
 enum KeyValueStorageKey {
     static let participatedVotes: String = "participatedVotesKey"
+    static let privateKey: String = "privateKey"
 }

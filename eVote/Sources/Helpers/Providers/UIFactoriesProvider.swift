@@ -78,7 +78,7 @@ final class UIFactoriesProvider {
     }
     
     private func makeAuthViewModelsFactory() -> AuthViewModelsFactory {
-        let factory = AuthViewModelsFactory(authenticator: self.authenticator, firestore: self.firestore)
+        let factory = AuthViewModelsFactory(authenticator: self.authenticator, firestore: self.firestore, keyValueStorage: self.keyValueStorage)
         return factory
     }
     

@@ -12,11 +12,14 @@ final class AuthViewModelsFactory {
 
     let authenticator: Authenticator
     let firestore: Firestore
+    let keyValueStorage: KeyValueStorage
     
     init(authenticator: Authenticator,
-         firestore: Firestore) {
+         firestore: Firestore,
+         keyValueStorage: KeyValueStorage) {
         self.authenticator = authenticator
         self.firestore = firestore
+        self.keyValueStorage = keyValueStorage
     }
     
     func makePhoneNumberViewModel() -> PhoneNumberViewModel {
@@ -25,7 +28,7 @@ final class AuthViewModelsFactory {
     }
     
     func makePhoneCodeViewModel() -> PhoneCodeViewModel {
-        let viewModel = PhoneCodeViewModel(authenticator: self.authenticator, firestore: self.firestore)
+        let viewModel = PhoneCodeViewModel(authenticator: self.authenticator, firestore: self.firestore, keyValueStorage: self.keyValueStorage)
         return viewModel
     }
 }
